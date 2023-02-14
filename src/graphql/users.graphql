@@ -1,0 +1,123 @@
+
+query getUsers {
+    users {
+        email
+        ssn
+        department
+        admin
+        approver
+        fullname
+        classification
+        timeoff
+    }
+}
+
+mutation authUser( $email: String!, $ssn: String! ) {
+    authUser( email: $email, ssn: $ssn ) {
+        email
+        ssn
+        department
+        admin
+        approver
+        fullname
+        classification
+        timeoff
+    }
+}
+
+query verifiedUser {
+    verifiedUser {
+        email
+        ssn
+        department
+        admin
+        approver
+        fullname
+        classification
+        timeoff
+    }
+}
+
+mutation verifyUser( $email: String!, $ssn: String! ) {
+    verifyUser( email: $email, ssn: $ssn ) {
+        email
+        ssn
+        fullname
+    }
+}
+
+mutation updateUser( $department: String!, $ssn: String!, $timeoff: String!, $approver: Boolean!, $admin: Boolean!, $classification: Boolean!, $fullname: String! ) {
+    updateUser( department: $department, ssn: $ssn, timeoff: $timeoff, approver: $approver, admin: $admin, classification: $classification, fullname: $fullname ) {
+        email
+        ssn
+        department
+        admin
+        approver
+        fullname
+        classification
+        timeoff
+    }
+}
+
+mutation addUser( $department: String!, $ssn: String!, $timeoff: String!, $approver: Boolean!, $admin: Boolean!, $classification: Boolean!, $fullname: String! $email: String! ) {
+    addUser( department: $department, ssn: $ssn, timeoff: $timeoff, approver: $approver, admin: $admin, classification: $classification, fullname: $fullname, email: $email ) {
+        email
+        ssn
+        department
+        admin
+        approver
+        fullname
+        classification
+        timeoff
+    }
+}
+
+mutation deleteUser( $email: String! ) {
+    deleteUser( email: $email ) {
+        email
+        ssn
+        fullname
+    }
+}
+
+mutation addRequest( $createdByWho: String!, $department: String!, $timeoff: String! ) {
+    addRequest( createdByWho: $createdByWho, department: $department, timeoff: $timeoff ) {
+        department
+        createdByWho
+        isPending
+        id
+        timeoff
+    }
+}
+
+mutation updateRequest( $id: String! ) {
+    updateRequest( id: $id ) {
+        department
+        createdByWho
+        isPending
+        id
+        timeoff
+    }
+}
+
+mutation deleteRequest( $id: String! ) {
+    deleteRequest( id: $id ) {
+        department
+        createdByWho
+        isPending
+        id
+        timeoff
+    }
+}
+
+query requests {
+    requests {
+        department
+        createdByWho
+        isPending
+        id
+        timeoff
+    }
+}
+
+
